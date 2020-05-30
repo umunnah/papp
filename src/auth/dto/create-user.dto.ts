@@ -11,10 +11,10 @@ export class CreateUserDto {
 
     @IsNotEmpty()
     @IsString()
+    @MinLength(6, {message: "Atleast six characters"})
     password: string;
 
     @IsNotEmpty()
     @IsString()
-    @MinLength(6, {message: "Atleast six characters"})
     role: string;
 }
