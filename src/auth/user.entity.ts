@@ -1,4 +1,4 @@
-import {Entity, Column} from 'typeorm';
+import {Entity, Column, Unique} from 'typeorm';
 import { UserRole } from './user-role.enum';
 import { MainEntity } from '../extension/main.entity';
 
@@ -12,7 +12,7 @@ export class User extends MainEntity {
 	email: string;
 
 	@Column()
-	passwword: string;
+	password: string;
 
 	@Column()
 	role: UserRole;

@@ -7,10 +7,10 @@ import { User } from './user.entity';
 export class AuthController {
 	constructor (private authService: AuthService) {}
 
-	@Post()
+	@Post('/signup')
 	@UsePipes(ValidationPipe)
-	createUser(@Body() createUserDto: CreateUserDto) {
-		return createUserDto;
+	createUser(@Body() createUserDto: CreateUserDto): Promise<User> {
+		return this.authService.register(createUserDto);
 	}
 
 	@Get('/:id')
