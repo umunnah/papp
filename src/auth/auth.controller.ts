@@ -17,5 +17,10 @@ export class AuthController {
 	getUser(@Param('id', ParseIntPipe) id:number): Promise<User> {
 		return this.authService.getUser(id);
 	}
+
+	@Get()
+	getUsers(): Promise<User[]> {
+		return this.authService.getUsers();
+	}
   
 }

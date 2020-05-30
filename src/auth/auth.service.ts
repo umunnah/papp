@@ -18,4 +18,8 @@ export class AuthService {
 		return found;
 
 	}
+
+	async getUsers(): Promise<User[]> {
+		return await this.userRepo.find();
+	}
 }
