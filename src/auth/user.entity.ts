@@ -16,6 +16,9 @@ export class User extends MainEntity {
 	password: string;
 
 	@Column()
+	salt: string;
+
+	@Column()
 	role: UserRole;
 
 }
