@@ -27,4 +27,12 @@ export class AuthService {
 	async register(createUserDto : CreateUserDto): Promise<User> {
 		return await this.userRepo.register(createUserDto);
 	}
+
+	async delete(id: number): Promise<void> {
+		const user =  await this.userRepo.findOne(id);
+		if (!user) {
+			throw new NotFoundException('Resource not found');
+		}
+		user.remove();
+	}
 }

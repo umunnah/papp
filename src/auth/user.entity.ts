@@ -3,6 +3,7 @@ import { UserRole } from './user-role.enum';
 import { MainEntity } from '../extension/main.entity';
 
 @Entity()
+@Unique(['email'])
 export class User extends MainEntity {
 
 	@Column()

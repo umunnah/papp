@@ -1,4 +1,4 @@
-import { Controller, Get, UsePipes, ValidationPipe, Body, Post, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, UsePipes, ValidationPipe, Body, Post, Param, ParseIntPipe, Delete } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.entity';
@@ -21,6 +21,11 @@ export class AuthController {
 	@Get()
 	getUsers(): Promise<User[]> {
 		return this.authService.getUsers();
+	}
+
+	@Delete('/:id')
+	deleteUser(@Param('id', ParseIntPipe) id:number): Promise<void> {
+		return this.authService.delete(id);
 	}
   
 }
