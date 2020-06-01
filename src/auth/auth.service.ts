@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { UserRepository } from './user.repository';
 import { User } from './user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
+import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 
 @Injectable()
 export class AuthService {
@@ -26,6 +27,10 @@ export class AuthService {
 
 	async register(createUserDto : CreateUserDto): Promise<User> {
 		return await this.userRepo.register(createUserDto);
+	}
+
+	async signin(authCredentialDto : AuthCredentialsDto): Promise<User> {
+		return await this.userRepo.signin(authCredentialDto);
 	}
 
 	async delete(id: number): Promise<void> {
